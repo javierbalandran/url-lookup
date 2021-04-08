@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlLookup.API", "UrlLookup.API\UrlLookup.API.csproj", "{16BF2739-4FFF-48DC-8B3B-79E0061B528F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UrlLookup.Tests", "UrlLookup.Tests\UrlLookup.Tests.csproj", "{9DD6270F-1087-4C69-9A60-F103CF3B7C70}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16BF2739-4FFF-48DC-8B3B-79E0061B528F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16BF2739-4FFF-48DC-8B3B-79E0061B528F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16BF2739-4FFF-48DC-8B3B-79E0061B528F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16BF2739-4FFF-48DC-8B3B-79E0061B528F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9DD6270F-1087-4C69-9A60-F103CF3B7C70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DD6270F-1087-4C69-9A60-F103CF3B7C70}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DD6270F-1087-4C69-9A60-F103CF3B7C70}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DD6270F-1087-4C69-9A60-F103CF3B7C70}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {45C551D7-7C78-4B65-9C3F-AD18CF0C3D1C}
+	EndGlobalSection
+EndGlobal
