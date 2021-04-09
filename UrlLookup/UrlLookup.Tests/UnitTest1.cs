@@ -1,7 +1,7 @@
 using System;
 using Xunit;
 
-namespace UrlLookup.Tests
+namespace UrlLookup.UnitTests
 {
     public class UnitTest1
     {

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sX/JQwFtoHS1gWBLcKrGD175uexI1QB+fc7othVNGBuPYDOKZYeJylhxsdgVXHhTZctke4hbwgXrf1y6kNGF6w==",
+  "dgSpecHash": "6J6cQ5frJiSmIIpYYM9Zw+dUXkJjps/eDZSal0lE3d0SESy0Z4X0Uw/xMwN9OmjuJyf0yAbJnt7umy6lQ7Cxcw==",
   "success": true,
-  "projectFilePath": "C:\\DevProjects\\url-lookup\\UrlLookup\\UrlLookup.Tests\\UrlLookup.Tests.csproj",
+  "projectFilePath": "C:\\DevProjects\\url-lookup\\UrlLookup\\UrlLookup.Tests\\UrlLookup.UnitTests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\javie_000\\.nuget\\packages\\coverlet.collector\\1.2.0\\coverlet.collector.1.2.0.nupkg.sha512",
     "C:\\Users\\javie_000\\.nuget\\packages\\microsoft.codecoverage\\16.5.0\\microsoft.codecoverage.16.5.0.nupkg.sha512",

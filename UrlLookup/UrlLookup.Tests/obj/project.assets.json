@@ -3510,9 +3510,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\DevProjects\\url-lookup\\UrlLookup\\UrlLookup.Tests\\UrlLookup.Tests.csproj",
-      "projectName": "UrlLookup.Tests",
-      "projectPath": "C:\\DevProjects\\url-lookup\\UrlLookup\\UrlLookup.Tests\\UrlLookup.Tests.csproj",
+      "projectUniqueName": "C:\\DevProjects\\url-lookup\\UrlLookup\\UrlLookup.Tests\\UrlLookup.UnitTests.csproj",
+      "projectName": "UrlLookup.UnitTests",
+      "projectPath": "C:\\DevProjects\\url-lookup\\UrlLookup\\UrlLookup.Tests\\UrlLookup.UnitTests.csproj",
       "packagesPath": "C:\\Users\\javie_000\\.nuget\\packages\\",
       "outputPath": "C:\\DevProjects\\url-lookup\\UrlLookup\\UrlLookup.Tests\\obj\\",
       "projectStyle": "PackageReference",
