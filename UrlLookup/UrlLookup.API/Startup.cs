@@ -34,7 +34,7 @@ namespace UrlLookup.API
             services.AddSingleton<IMaliciousUrlsDatabaseSettings>(sp =>
                 sp.GetRequiredService<IOptions<MaliciousUrlsDatabaseSettings>>().Value);
 
-            services.AddSingleton<UrlService>();
+            services.AddSingleton<UrlInfoService>();
 
             services.AddControllers()
                 .AddNewtonsoftJson(options => options.UseMemberCasing());
