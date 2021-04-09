@@ -20,29 +20,20 @@ namespace UrlLookup.API.Controllers
             _urlService = urlService;
         }
 
-        [HttpGet]
-        public ActionResult<List<UrlInfo>> GetAllUrls()
+        [HttpGet("{version}/{hostNameAndPort}/{*path}")]
+        public ActionResult<UrlInfo> Get([FromRoute] FullUrl fullUrl, [FromQuery] Dictionary<string,string> query)
         {
-            var urls = _urlService.GetAll();
+            // Parse Request
 
-            if (urls == null)
-            {
-                return NotFound();
-            }
-            return urls;
-        }
+            // Validate Request
 
-        [HttpGet("{id:length(24)}")]
-        public ActionResult<UrlInfo> GetUrl(string id)
-        {
-            var url = _urlService.Get(id);
+            // Form Response
 
-            if (url == null)
-            {
-                return NotFound();
-            }
+            // Send Response
 
-            return url;
+            fullUrl.Query = query;
+            
+            return Ok(fullUrl);
         }
     }
 }
