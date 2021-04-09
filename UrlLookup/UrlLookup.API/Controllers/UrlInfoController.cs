@@ -13,14 +13,14 @@ namespace UrlLookup.API.Controllers
     [ApiController]
     public class UrlInfoController : ControllerBase
     {
-        private readonly UrlInfoService _urlService;
+        private readonly IUrlInfoService _urlService;
 
         public UrlInfoController(UrlInfoService urlService)
         {
             _urlService = urlService;
         }
 
-        [HttpGet("{version}/{hostNameAndPort}/{*path}")]
+        [HttpGet("{version:int}/{host}/{*path}")]
         public ActionResult<UrlInfo> Get([FromRoute] FullUrl fullUrl, [FromQuery] Dictionary<string,string> query)
         {
             // Parse Request

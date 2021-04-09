@@ -28,11 +28,11 @@ namespace UrlLookup.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<MaliciousUrlsDatabaseSettings>(
-                Configuration.GetSection(nameof(MaliciousUrlsDatabaseSettings)));
+            services.Configure<DatabaseSettings>(
+                Configuration.GetSection(nameof(DatabaseSettings)));
 
-            services.AddSingleton<IMaliciousUrlsDatabaseSettings>(sp =>
-                sp.GetRequiredService<IOptions<MaliciousUrlsDatabaseSettings>>().Value);
+            services.AddSingleton<IDatabaseSettings>(sp =>
+                sp.GetRequiredService<IOptions<DatabaseSettings>>().Value);
 
             services.AddSingleton<UrlInfoService>();
 

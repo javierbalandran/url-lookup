@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace UrlLookup.API.Models
 {
-    public interface IMaliciousUrlsDatabaseSettings
+    public interface IDatabaseSettings
     {
         public string UrlsCollectionName { get; set; }
         public string ConnectionString { get; set; }
         public string DatabaseName { get; set; }
     }
-    public class MaliciousUrlsDatabaseSettings : IMaliciousUrlsDatabaseSettings
+    public class DatabaseSettings : IDatabaseSettings
     {
         public string UrlsCollectionName { get; set; }
         public string ConnectionString { get; set; }

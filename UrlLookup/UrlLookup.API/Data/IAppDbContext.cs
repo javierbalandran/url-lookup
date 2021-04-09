@@ -8,6 +8,7 @@ namespace UrlLookup.API.Data
 {
     interface IAppDbContext
     {
+        // CRUD methods
         public UrlInfo CreateUrlInfo(UrlInfo urlInfo);
         public UrlInfo ReadUrlInfo(string id);
         public UrlInfo ReadUrlInfo(string hostNameAndPort, string pathAndQuery);

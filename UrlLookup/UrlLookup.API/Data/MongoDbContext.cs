@@ -11,7 +11,7 @@ namespace UrlLookup.API.Data
     public class MongoDbContext : IAppDbContext
     {
         private readonly IMongoCollection<UrlInfo> _urlInfos;
-        public MongoDbContext(IMaliciousUrlsDatabaseSettings settings)
+        public MongoDbContext(IDatabaseSettings settings)
         {
             var client = new MongoClient(settings.ConnectionString);
             var database = client.GetDatabase(settings.DatabaseName);
