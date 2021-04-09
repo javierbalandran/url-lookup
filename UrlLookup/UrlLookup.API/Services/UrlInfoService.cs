@@ -3,36 +3,24 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using UrlLookup.API.Data;
 using UrlLookup.API.Models;
 
 namespace UrlLookup.API.Services
 {
     public class UrlInfoService
     {
-        private readonly IMongoCollection<UrlInfo> _urls;
+        private readonly IAppDbContext _dbContext;
 
         public UrlInfoService(IMaliciousUrlsDatabaseSettings settings)
         {
-            var client = new MongoClient(settings.ConnectionString);
-            var database = client.GetDatabase(settings.DatabaseName);
-
-            _urls = database.GetCollection<UrlInfo>(settings.UrlsCollectionName);
+            _dbContext = new MongoDbContext(settings);
         }
 
-        public List<UrlInfo> GetAll() => _urls.Find(book => true).ToList();
-
-        public UrlInfo Get(string id) => _urls.Find<UrlInfo>(url => url.Id == id).FirstOrDefault();
-
-        public UrlInfo Create(UrlInfo url)
-        {
-            _urls.InsertOne(url);
-            return url;
-        }
-
-        public void Update(string id, UrlInfo urlIn) => _urls.ReplaceOne<UrlInfo>(url => url.Id == id, urlIn);
-
-        public void Remove(UrlInfo urlOut) => _urls.DeleteOne(url => url.Id == urlOut.Id);
-
-        public void Remove(string id) => _urls.DeleteOne(url => url.Id == id);
+        public UrlInfo Add(UrlInfo urlInfo) => _dbContext.CreateUrlInfo(urlInfo);
+        public UrlInfo Get(string id) => _dbContext.ReadUrlInfo(id);
+        public void Update(string id, UrlInfo urlIn) => _dbContext.UpdateUrlInfo(id, urlIn);
+        public void Delete(UrlInfo urlOut) => _dbContext.DeleteUrlInfo(urlOut);
+        public void Delete(string id) => _dbContext.DeleteUrlInfo(id);
     }
 }
