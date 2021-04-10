@@ -8,19 +8,6 @@ namespace UrlLookup.API.Models
         public string Host { get; set; }
         public string Path { get; set; }
         public Dictionary<string, string> Query { get; set; }
-
-        public string FormattedRequest { 
-            get
-            {
-                return Host;
-            }
-        }
-
-        private string formatRequest(string host, string path, Dictionary<string, string> query)
-        {
-
-            return host;
-        }
-
+        public string RawRequest { get; set; }
     }
 }

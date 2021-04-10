@@ -29,9 +29,9 @@ namespace UrlLookup.API.Data
 
         public UrlInfo ReadByUrlRequest(string request)
         {
-            UrlInfo result = _urlListCollection.Find(s => s.UrlName == "nifty.com/libero/non/mattis/pulvinar/nulla/pede.json?non=consequat&ligula=varius&pellentesque=integer&ultrices=ac&phasellus=leo&id=pellentesque&sapien=ultrices&in=mattis&sapien=odio&iaculis=donec&congue=vitae&vivamus=nisi&metus=nam&arcu=ultrices&adipiscing=libero&molestie=non&hendrerit=mattis&at=pulvinar&vulputate=nulla&vitae=pede&nisl=ullamcorper&aenean=augue&lectus=a&pellentesque=suscipit&eget=nulla&nunc=elit&donec=ac&quis=nulla&orci=sed&eget=vel&orci=enim&vehicula=sit&condimentum=amet&curabitur=nunc&in=viverra&libero=dapibus&ut=nulla&massa=suscipit&volutpat=ligula&convallis=in&morbi=lacus&odio=curabitur&odio=at&elementum=ipsum&eu=ac&interdum=tellus&eu=semper&tincidunt=interdum&in=mauris&leo=ullamcorper&maecenas=purus&pulvinar=sit").FirstOrDefault<UrlInfo>();
+            UrlInfo resultActual = _urlListCollection.Find(s => s.UrlName == request).FirstOrDefault<UrlInfo>();
 
-            return result;
+            return resultActual;
         }
     }
 }
