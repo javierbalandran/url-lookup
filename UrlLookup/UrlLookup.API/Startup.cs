@@ -13,6 +13,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using UrlLookup.API.Data;
+using UrlLookup.API.Models;
 using UrlLookup.API.Services;
 
 namespace UrlLookup.API
@@ -34,7 +35,10 @@ namespace UrlLookup.API
                 var uri = s.GetRequiredService<IConfiguration>()["MongoUri"];
                 return new MongoClient(uri);
             });
-
+            services.Configure<MongoDbSettings>(Configuration.GetSection(nameof(MongoDbSettings)));
+            services.AddSingleton<IMongoDbSettings>(s =>
+                s.GetRequiredService<IOptions<MongoDbSettings>>().Value);
+            
             services.AddSingleton<IUrlInfoDatabase, UrlInfoMongoDb>();
             services.AddSingleton<IUrlLookupService, UrlLookupService>();
 

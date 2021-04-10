@@ -11,10 +11,10 @@ namespace UrlLookup.API.Data
     {
         private IMongoCollection<UrlInfo> _urlListCollection;
 
-        public UrlInfoMongoDb(IMongoClient client)
+        public UrlInfoMongoDb(IMongoClient client, IMongoDbSettings settings)
         {
-            var database = client.GetDatabase("malicious_urls_db");
-            _urlListCollection = database.GetCollection<UrlInfo>("url_list");
+            var database = client.GetDatabase(settings.DatabaseName);
+            _urlListCollection = database.GetCollection<UrlInfo>(settings.CollectionName);
         }
 
         public void Create(UrlInfo urlInfo)
