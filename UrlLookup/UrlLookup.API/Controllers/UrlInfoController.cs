@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,16 +14,21 @@ namespace UrlLookup.API.Controllers
     [ApiController]
     public class UrlInfoController : ControllerBase
     {
-        private readonly IUrlInfoService _urlService;
+        private IUrlLookupService _urlLookupService;
 
-        public UrlInfoController(UrlInfoService urlService)
+        public UrlInfoController(IUrlLookupService service)
         {
-            _urlService = urlService;
+            _urlLookupService = service;
         }
 
+
         [HttpGet("{version:int}/{host}/{*path}")]
-        public ActionResult<UrlInfo> Get([FromRoute] FullUrl fullUrl, [FromQuery] Dictionary<string,string> query)
-        {
+        public ActionResult<UrlInfo> Get([FromRoute] UrlInfoRequest urlInfoRequest, [FromQuery] Dictionary<string,string> query)
+        {            
+            urlInfoRequest.Query = query;
+
+            return Ok(_urlLookupService.FindUrl(urlInfoRequest));
+
             // Parse Request
 
             // Validate Request
@@ -31,9 +37,9 @@ namespace UrlLookup.API.Controllers
 
             // Send Response
 
-            fullUrl.Query = query;
-            
-            return Ok(fullUrl);
+
+
+            //return Ok(fullUrl);
         }
     }
 }
