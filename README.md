@@ -2,7 +2,7 @@
 Web service that responds to GET requests where the caller wants information about a Malicious URL.
 
 ## Technologies Used
-**Web Service:** ASP.NET Core 3.1 Web API 
+**Web Service:** ASP.NET Core 3.1 Web REST API 
 
 **Database:** Atlas Mongo Database
 
