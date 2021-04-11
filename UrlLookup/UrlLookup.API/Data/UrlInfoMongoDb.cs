@@ -34,9 +34,15 @@ namespace UrlLookup.API.Data
                 return null;
             }
 
-            UrlInfo resultActual = _urlListCollection.Find(s => s.UrlName == request).FirstOrDefault<UrlInfo>();
-
-            return resultActual;
+            try
+            {
+                UrlInfo resultActual = _urlListCollection.Find(s => s.Url == request).FirstOrDefault<UrlInfo>();
+                return resultActual;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

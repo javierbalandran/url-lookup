@@ -31,7 +31,7 @@ namespace UrlLookup.API.UnitTests
             {
                 Id = "testId1",
                 DateAdded = new DateTime(2020, 4, 10, 12, 30, 30, 350),
-                UrlName = url
+                Url = url
             };
 
             _databaseMock.Setup(x => x.ReadByUrlRequest(url)).Returns(expectedUrlInfo);

@@ -17,6 +17,6 @@ namespace UrlLookup.API.Models
         public DateTime DateAdded { get; set; }
         [BsonElement("url_name")]
         [JsonProperty("url_name")]
-        public string UrlName { get; set; }
+        public string Url { get; set; }
     }
 }

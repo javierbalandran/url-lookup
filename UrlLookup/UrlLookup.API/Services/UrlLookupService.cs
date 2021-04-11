@@ -24,9 +24,15 @@ namespace UrlLookup.API.Services
                 return null;
             }
 
-            UrlInfo urlInfo = _database.ReadByUrlRequest(url);
-            
-            return urlInfo;
+            try
+            {
+                UrlInfo urlInfo = _database.ReadByUrlRequest(url);
+                return urlInfo;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
 
         public bool isRequestInvalid(UrlInfoRequest request)
