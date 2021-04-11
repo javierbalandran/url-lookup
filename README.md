@@ -28,5 +28,14 @@ Web service that responds to GET requests where the caller wants information abo
   - gnu.org/vivamus/vel/nulla.jsp?volutpat=ultrices&in=vel&congue=augue&etiam=vestibulum&justo=ante&etiam=ipsum&pretium=primis&iaculis=in&justo=faucibus&in=orci&hac=luctus&habitasse=et&platea=ultrices&dictumst=posuere&etiam=cubilia&faucibus=curae&cursus=donec&urna=pharetra&ut=magna&tellus=vestibulum&nulla=aliquet&ut=ultrices&erat=erat&id=tortor&mauris=sollicitudin&vulputate=mi&elementum=sit&nullam=amet&varius=lobortis&nulla=sapien&facilisi=sapien
   - friendfeed.com/justo/eu.aspx?eu=luctus&orci=ultricies&mauris=eu&lacinia=nibh&sapien=quisque&quis=id
   - soup.io/quis/lectus/suspendisse.png?erat=aliquet&id=maecenas&mauris=leo&vulputate=odio&elementum=condimentum&nullam=id&varius=luctus&nulla=nec&facilisi=molestie&cras=sed&non=justo&velit=pellentesque&nec=viverra&nisi=pede&vulputate=ac&nonummy=diam&maecenas=cras&tincidunt=pellentesque&lacus=volutpat&at=dui&velit=maecenas&vivamus=tristique&vel=est&nulla=et&eget=tempus&eros=semper&elementum=est&pellentesque=quam&quisque=pharetra&porta=magna&volutpat=ac&erat=consequat&quisque=metus&erat=sapien&eros=ut&viverra=nunc&eget=vestibulum&congue=ante&eget=ipsum&semper=primis&rutrum=in&nulla=faucibus&nunc=orci&purus=luctus&phasellus=et&in=ultrices&felis=posuere
+
+## Responses
+- 400 BAD REQUEST
+  - Service will return a 400 error if it catches that the request does not use version 1 in the GET urlinfo/**1**/ url
+  - It will also return a 400 error if the request is missing the hostname section of the url
+- 404 NOT FOUND
+  - If the respone Url is not in the database, then it is marked as a **Safe** site
+- 200 OK
+  - If the response Url is in the database, then it is a Malicious URL and marked as **Not Safe**
   
 For further questions, please email javierbalandran@gmail.com
