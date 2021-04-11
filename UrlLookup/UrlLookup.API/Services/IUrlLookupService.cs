@@ -8,6 +8,9 @@ namespace UrlLookup.API.Services
 {
     public interface IUrlLookupService
     {
-        UrlInfo FindUrl(string request);
+        UrlInfo findUrl(string request);
+        public bool isRequestInvalid(UrlInfoRequest urlInfoRequest);
+        public UrlInfoRequest formatUrlRequest(UrlInfoRequest urlInfoRequest, Dictionary<string, string> query, string rawRequest);
+        public string getUriFromRequest(UrlInfoRequest request);
     }
 }

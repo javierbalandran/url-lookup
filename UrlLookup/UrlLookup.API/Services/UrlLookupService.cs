@@ -17,16 +17,38 @@ namespace UrlLookup.API.Services
             _database = database;
         }
 
-        public UrlInfo FindUrl(string request)
+        public UrlInfo findUrl(string url)
         {
-            if (request == null)
+            if (url == null)
             {
                 return null;
             }
 
-            UrlInfo urlInfo = _database.ReadByUrlRequest(request);
+            UrlInfo urlInfo = _database.ReadByUrlRequest(url);
             
             return urlInfo;
+        }
+
+        public bool isRequestInvalid(UrlInfoRequest request)
+        {
+            return (request.Version != 1 || request.Host == null || request.Host == "") ? true : false;
+        }
+
+        public UrlInfoRequest formatUrlRequest(UrlInfoRequest request, Dictionary<string, string> query, string rawRequest)
+        {
+            request.Query = query;
+            request.RawRequest = rawRequest;
+
+            return request;
+        }
+
+        public string getUriFromRequest(UrlInfoRequest request)
+        {
+            string removalString = "urlinfo/" + request.Version + "/";
+            int indexOfGet = request.RawRequest.IndexOf(removalString);
+            string uri = request.RawRequest.Substring(indexOfGet + removalString.Length);
+
+            return uri;
         }
     }
 }

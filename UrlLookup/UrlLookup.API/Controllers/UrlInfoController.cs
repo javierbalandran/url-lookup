@@ -24,15 +24,18 @@ namespace UrlLookup.API.Controllers
         [HttpGet("{version:int}/{host}/{*path}")]
         [HttpGet("{version:int}")]
         [HttpGet()]
-        public ActionResult<UrlInfo> Get([FromRoute] UrlInfoRequest urlInfoRequest, [FromQuery] Dictionary<string, string> query)
+        public ActionResult<UrlInfo> Get([FromRoute] UrlInfoRequest request, [FromQuery] Dictionary<string, string> query)
         {
-            if (isRequestInValid(urlInfoRequest))
+            if (_urlLookupService.isRequestInvalid(request))
             {
-                return NotFound("Ensure the url has the proper version or that the host exists");
+                return BadRequest("Ensure the url has the proper version or that the host exists");
             }
 
-            urlInfoRequest = formatUrlRequest(urlInfoRequest, query);
-            UrlInfo response = _urlLookupService.FindUrl(getUriFromRequest(urlInfoRequest));
+            string rawRequest = UriHelper.GetDisplayUrl(Request);
+            request = _urlLookupService.formatUrlRequest(request, query, rawRequest);
+            string url = _urlLookupService.getUriFromRequest(request);
+
+            UrlInfo response = _urlLookupService.findUrl(url);
 
             if (response == null)
             {
@@ -40,28 +43,6 @@ namespace UrlLookup.API.Controllers
             }
 
             return Ok(response);
-        }
-
-        private bool isRequestInValid(UrlInfoRequest urlInfoRequest)
-        {
-            return (urlInfoRequest.Version != 1 || urlInfoRequest.Host == null) ? true : false;
-        }
-
-        private UrlInfoRequest formatUrlRequest(UrlInfoRequest urlInfoRequest, Dictionary<string,string> query)
-        {
-            urlInfoRequest.Query = query;
-            urlInfoRequest.RawRequest = UriHelper.GetDisplayUrl(Request);
-
-            return urlInfoRequest;
-        }
-
-        private string getUriFromRequest(UrlInfoRequest request)
-        {
-            string removalString = "urlinfo/" + request.Version + "/";
-            int indexOfGet = request.RawRequest.IndexOf(removalString);
-            string uri = request.RawRequest.Substring(indexOfGet + removalString.Length);
-
-            return uri;
         }
     }
 }
