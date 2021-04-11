@@ -7,11 +7,13 @@ using System.Linq;
 using System.Threading.Tasks;
 using UrlLookup.API.Models;
 using UrlLookup.API.Services;
+using UrlLookup.API.Filters;
 
 namespace UrlLookup.API.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [ApiKeyAuth]
     public class UrlInfoController : ControllerBase
     {
         private IUrlLookupService _urlLookupService;
