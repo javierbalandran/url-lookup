@@ -8,6 +8,6 @@ namespace UrlLookup.API.Services
 {
     public interface IUrlLookupService
     {
-        UrlInfo FindUrl(UrlInfoRequest request);
+        UrlInfo FindUrl(string request);
     }
 }

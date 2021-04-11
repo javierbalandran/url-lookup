@@ -29,6 +29,11 @@ namespace UrlLookup.API.Data
 
         public UrlInfo ReadByUrlRequest(string request)
         {
+            if (request == null)
+            {
+                return null;
+            }
+
             UrlInfo resultActual = _urlListCollection.Find(s => s.UrlName == request).FirstOrDefault<UrlInfo>();
 
             return resultActual;

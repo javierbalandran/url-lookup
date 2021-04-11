@@ -22,24 +22,46 @@ namespace UrlLookup.API.Controllers
         }
 
         [HttpGet("{version:int}/{host}/{*path}")]
+        [HttpGet("{version:int}")]
+        [HttpGet()]
         public ActionResult<UrlInfo> Get([FromRoute] UrlInfoRequest urlInfoRequest, [FromQuery] Dictionary<string, string> query)
         {
-            // Parse Request
-            urlInfoRequest.Query = query;
-            urlInfoRequest.RawRequest = UriHelper.GetDisplayUrl(Request);
+            if (isRequestInValid(urlInfoRequest))
+            {
+                return NotFound("Ensure the url has the proper version or that the host exists");
+            }
 
-            // Validate Request
+            urlInfoRequest = formatUrlRequest(urlInfoRequest, query);
+            UrlInfo response = _urlLookupService.FindUrl(getUriFromRequest(urlInfoRequest));
 
-            // Form Response
-            UrlInfo response = _urlLookupService.FindUrl(urlInfoRequest);
-
-            // Send Response
             if (response == null)
             {
-                return NotFound();
+                return NotFound("Safe");
             }
 
             return Ok(response);
+        }
+
+        private bool isRequestInValid(UrlInfoRequest urlInfoRequest)
+        {
+            return (urlInfoRequest.Version != 1 || urlInfoRequest.Host == null) ? true : false;
+        }
+
+        private UrlInfoRequest formatUrlRequest(UrlInfoRequest urlInfoRequest, Dictionary<string,string> query)
+        {
+            urlInfoRequest.Query = query;
+            urlInfoRequest.RawRequest = UriHelper.GetDisplayUrl(Request);
+
+            return urlInfoRequest;
+        }
+
+        private string getUriFromRequest(UrlInfoRequest request)
+        {
+            string removalString = "urlinfo/" + request.Version + "/";
+            int indexOfGet = request.RawRequest.IndexOf(removalString);
+            string uri = request.RawRequest.Substring(indexOfGet + removalString.Length);
+
+            return uri;
         }
     }
 }
