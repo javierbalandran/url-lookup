@@ -63,7 +63,6 @@ namespace UrlLookup.API.UnitTests
         [InlineData(1, "")] // string with empty host
         [InlineData(0, null)]
         [InlineData(0, "validHost")]
-        [InlineData(null, null)]
         [InlineData(2, "validHost")]
         public void isRequestInvalid_ShouldReturnTrue_WhenInvalid(int version, string host)
         {
