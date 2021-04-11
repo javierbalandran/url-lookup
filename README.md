@@ -2,8 +2,10 @@
 Web service that responds to GET requests where the caller wants information about a Malicious URL.
 
 ## Technologies Used
-**Web Service:** ASP.NET Core 3.1 Web API
+**Web Service:** ASP.NET Core 3.1 Web API 
+
 **Database:** Atlas Mongo Database
+
 **Authentication:** Request Header API Key
 
 ## Installation Instructions
@@ -27,4 +29,4 @@ Web service that responds to GET requests where the caller wants information abo
   - friendfeed.com/justo/eu.aspx?eu=luctus&orci=ultricies&mauris=eu&lacinia=nibh&sapien=quisque&quis=id
   - soup.io/quis/lectus/suspendisse.png?erat=aliquet&id=maecenas&mauris=leo&vulputate=odio&elementum=condimentum&nullam=id&varius=luctus&nulla=nec&facilisi=molestie&cras=sed&non=justo&velit=pellentesque&nec=viverra&nisi=pede&vulputate=ac&nonummy=diam&maecenas=cras&tincidunt=pellentesque&lacus=volutpat&at=dui&velit=maecenas&vivamus=tristique&vel=est&nulla=et&eget=tempus&eros=semper&elementum=est&pellentesque=quam&quisque=pharetra&porta=magna&volutpat=ac&erat=consequat&quisque=metus&erat=sapien&eros=ut&viverra=nunc&eget=vestibulum&congue=ante&eget=ipsum&semper=primis&rutrum=in&nulla=faucibus&nunc=orci&purus=luctus&phasellus=et&in=ultrices&felis=posuere
   
-For further questions, please email javierbalandran@gmail
+For further questions, please email javierbalandran@gmail.com
