@@ -21,7 +21,7 @@ namespace UrlLookup.API.UnitTests
         [InlineData("testhost.com:80/test/path?test=query&second+query")] // normal uri
         [InlineData("test.com/test/path?test=query")] // no port
         [InlineData("h/p")] // short urls
-        [InlineData("test.com")]// long Urls
+        [InlineData("newyorker.com/in/hac/habitasse/platea/dictumst/maecenas.png?eget=donec&orci=quis&vehicula=orci&condimentum=eget&curabitur=orci&in=vehicula&libero=condimentum&ut=curabitur&massa=in&volutpat=libero&convallis=ut&morbi=massa&odio=volutpat&odio=convallis&elementum=morbi&eu=odio&interdum=odio&eu=elementum&tincidunt=eu&in=interdum&leo=eu&maecenas=tincidunt&pulvinar=in&lobortis=leo&est=maecenas&phasellus=pulvinar&sit=lobortis&amet=est&erat=phasellus&nulla=sit&tempus=amet&vivamus=erat&in=nulla&felis=tempus&eu=vivamus&sapien=in&cursus=felis&vestibulum=eu&proin=sapien&eu=cursus&mi=vestibulum&nulla=proin&ac=eu&enim=mi&in=nulla&tempor=ac&turpis=enim&nec=in&euismod=tempor&scelerisque=turpis&quam=nec&turpis=euismod&adipiscing=scelerisque&lorem=quam&vitae=turpis&mattis=adipiscing&nibh=lorem&ligula=vitae&nec=mattis&sem=nibh&duis=ligula&aliquam=nec&convallis=sem&nunc=duis&proin=aliquam&at=convallis&turpis=nunc&a=proin&pede=at&posuere=turpis&nonummy=a&integer=pede&non=posuere&velit=nonummy&donec=integer&diam=non&neque=velit&vestibulum=donec&eget=diam&vulputate=neque&ut=vestibulum")]// long Urls
         [InlineData("test.com/test/path")] //missing query string
         [InlineData("10.127.0.0:80/test/path")] // host is ipaddress
         public void findUrl_ShouldReturnUrlInfo_WhenUrlExists(string url)
